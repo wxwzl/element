@@ -17,7 +17,11 @@ export default {
       if (autoLabelWidth && autoLabelWidth !== 'auto') {
         const marginLeft = parseInt(autoLabelWidth, 10) - this.computedWidth;
         if (marginLeft) {
-          style.marginLeft = marginLeft + 'px';
+          if(this.elForm.labelPosition === 'left'){
+            style.marginRight = marginLeft + 'px';
+          }else{
+            style.marginLeft = marginLeft + 'px';
+          }
         }
       }
       return (<div class="el-form-item__label-wrap" style={style}>
